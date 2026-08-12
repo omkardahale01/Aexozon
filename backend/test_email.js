@@ -1,0 +1,1 @@
+import dotenv from 'dotenv'; dotenv.config(); import { sendAutoReplyEmail } from './src/services/emailService.js'; sendAutoReplyEmail('dahiwalakshada@gmail.com', 'Lakshada'); setTimeout(() => process.exit(0), 5000);
