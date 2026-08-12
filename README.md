@@ -1,2 +1,2 @@
 # Aexozon
-Aexozon Tech-services
+Aexozon Tech-services & AI Automation
