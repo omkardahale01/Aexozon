@@ -116,6 +116,8 @@ export interface PortfolioInfo {
     twitter: string;
   };
   ctaButtons: { label: string; url: string; type: 'primary' | 'secondary' }[];
+  theme?: any;
+  siteName?: string;
 }
 
 export interface DashboardStats {

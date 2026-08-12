@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion';
 import {
-  Layout, GraduationCap, Server, ArrowRight, Smartphone, Briefcase,
+  Layout, Server, ArrowRight, Smartphone,
   CheckCircle, Sparkles, Clock, Shield, Headphones, Wallet, Megaphone, Cloud
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { TiltCard } from '../components/ui/TiltCard';
-import { BackgroundParticles } from '../components/3d/BackgroundParticles';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 25 },

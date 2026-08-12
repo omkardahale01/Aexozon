@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Mail, Phone, ExternalLink, Calendar, MapPin, Tag } from 'lucide-react';
+import { Mail, Phone, ExternalLink, Calendar, Tag } from 'lucide-react';
 import { toast } from 'sonner';
 
 const API = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';

@@ -29,7 +29,7 @@ const VortexParticles = ({ count, reducedMotion }: { count: number; reducedMotio
 
   const { pointer } = useThree();
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     if (!pointsRef.current || reducedMotion) return;
 
     // Slow continuous rotation

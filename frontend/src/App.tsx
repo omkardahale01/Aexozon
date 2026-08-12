@@ -12,6 +12,7 @@ import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import Login from './pages/admin/Login';
 import Dashboard from './pages/admin/Dashboard';
+import NotFound from './pages/NotFound';
 import { AuthProvider } from './context/AuthContext';
 import { PortfolioProvider } from './context/PortfolioContext';
 import { CursorGlow } from './components/ui/CursorGlow';
@@ -55,7 +56,7 @@ const ScrollToTop = () => {
 function MainContent() {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
-  const isHomeRoute = location.pathname === '/';
+
 
   return (
     <div className="min-h-screen bg-premium-black text-white overflow-x-hidden">
@@ -71,6 +72,7 @@ function MainContent() {
           <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
           <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
           <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
+          <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
 
           {/* Admin Routes */}
           <Route path="/admin/login" element={<Login />} />

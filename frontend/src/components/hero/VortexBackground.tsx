@@ -1,4 +1,4 @@
-import React, { useRef, useMemo, useState, useEffect } from 'react';
+import { useRef, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
@@ -75,7 +75,7 @@ const SpiralRings = () => {
     ];
   }, []);
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     if (groupRef.current) {
       // Rotate each ring individually
       groupRef.current.children.forEach((child, i) => {
@@ -129,7 +129,7 @@ const StreakOverlay = () => {
     return pos;
   }, []);
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     if (pointsRef.current) {
       // Rotate backwards extremely slowly (150s)
       pointsRef.current.rotation.z += (1 / 150) * delta * Math.PI * 2;

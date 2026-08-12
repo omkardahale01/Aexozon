@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, Phone, MapPin, Linkedin, Github, Twitter, CheckCircle, AlertCircle, Loader2, MessageCircle, Clock, Shield, Sparkles, ChevronDown } from 'lucide-react';
+import { Send, Mail, Phone, MapPin, Linkedin, Github, Twitter, CheckCircle, AlertCircle, Loader2, MessageCircle, Clock, Shield, Sparkles } from 'lucide-react';
 import { usePortfolio } from '../context/PortfolioContext';
 import { GridBackground } from '../components/ui/GridBackground';
 import { TiltCard } from '../components/ui/TiltCard';

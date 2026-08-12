@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { Plus, Trash2, Edit3, Save, X, Users, Image as ImageIcon } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -23,26 +23,31 @@ const TextArea = ({ label, ...props }: { label: string } & React.TextareaHTMLAtt
 );
 
 export const TeamTab = ({ token }: { token: string | null }) => {
-  const [items, setItems] = useState<any[]>([]);
-  const [editing, setEditing] = useState<any | null>(null);
+  const [items, setItems] = useState<Record<string, any>[]>([]);
+  const [editing, setEditing] = useState<Record<string, any> | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [saving, setSaving] = useState(false);
   
   const blank = { name: '', role: '', bio: '', image: '', linkedin: '', github: '', twitter: '', order: 0, isVisible: true };
   const [form, setForm] = useState(blank);
 
-  const load = useCallback(async () => {
-    try {
-      const res = await fetch(`${API}/team`);
-      const data = await res.json();
-      if (data.success) setItems(data.data);
-    } catch (e) { toast.error('Failed to load team'); }
+  useEffect(() => { 
+    let mounted = true;
+    const fetchTeam = async () => {
+      try {
+        const res = await fetch(`${API}/team`);
+        const data = await res.json();
+        if (data.success && mounted) setItems(data.data);
+      } catch (e) {
+        if (mounted) toast.error('Failed to load team');
+      }
+    };
+    fetchTeam();
+    return () => { mounted = false; };
   }, []);
 
-  useEffect(() => { load(); }, [load]);
-
   const openNew = () => { setForm(blank); setEditing(null); setShowForm(true); };
-  const openEdit = (item: any) => {
+  const openEdit = (item: Record<string, any>) => {
     setForm({
       name: item.name, role: item.role, bio: item.bio, image: item.image,
       linkedin: item.social?.linkedin || '', github: item.social?.github || '', twitter: item.social?.twitter || '',
@@ -70,7 +75,11 @@ export const TeamTab = ({ token }: { token: string | null }) => {
       if (data.success) {
         toast.success(editing ? 'Team member updated!' : 'Team member added!');
         setShowForm(false);
-        load();
+        try {
+          const fetchTeamRes = await fetch(`${API}/team`);
+          const teamData = await fetchTeamRes.json();
+          if (teamData.success) setItems(teamData.data);
+        } catch(e) {}
       } else {
         toast.error(data.message || 'Failed to save');
       }
@@ -85,7 +94,14 @@ export const TeamTab = ({ token }: { token: string | null }) => {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
-      if (res.ok) { toast.success('Removed'); load(); }
+      if (res.ok) { 
+        toast.success('Removed');
+        try {
+          const fetchTeamRes = await fetch(`${API}/team`);
+          const teamData = await fetchTeamRes.json();
+          if (teamData.success) setItems(teamData.data);
+        } catch(e) {}
+      }
     } catch (e) { toast.error('Failed to delete'); }
   };
 
