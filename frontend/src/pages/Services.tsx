@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import {
-  Layout, Server, ArrowRight, Smartphone,
+  Layout, Server, ArrowRight,
   CheckCircle, Sparkles, Clock, Shield, Headphones, Wallet, Megaphone, Cloud
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
