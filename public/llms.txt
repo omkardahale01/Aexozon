@@ -1,0 +1,26 @@
+# Aexozone
+
+## About Us
+Aexozone is a premier digital agency based in Pune, India. We specialize in web and app development, Enterprise CRM & ERP Systems, Digital & Growth Marketing, and AI-Powered SaaS Architecture.
+
+## Services
+- Web & App Development
+- Enterprise CRM & ERP Systems
+- Digital & Growth Marketing
+- AI-Powered SaaS Architecture
+
+## Target Audience
+We primarily serve Small Businesses and SaaS companies.
+
+## Unique Selling Points
+- One team for video editing, web/app development and branding
+- Fixed-price packages with no hidden charges
+- First draft delivered within 5 days
+- 2 free revision rounds on every project
+- SEO and AI-search-ready websites built in from day one
+
+## Contact Info
+- Email: omkardahaleofficial@gmail.com
+- Phone: +91 7030727201
+- Location: Pune, India
+- Website: https://aexozone-za2r.vercel.app/
